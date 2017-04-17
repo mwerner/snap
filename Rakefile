@@ -1,0 +1,1 @@
+require 'sinatra/rider/rake'

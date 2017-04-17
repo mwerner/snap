@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Snapchat</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <link rel="stylesheet" type="text/css" href="/assets/application.css">
+</head>
+
+<body>
+  <div class="wrap">
+    <%= erb '_navigation'.to_sym %>
+
+    <div id="container">
+      <%= yield %>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="/assets/application.js"></script>
+</body>
+</html>
