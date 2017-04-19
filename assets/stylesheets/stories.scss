@@ -1,0 +1,22 @@
+.story-row {
+  background: white;
+}
+.col-xs-2 {
+  text-align: center;
+  i {
+    font-size: 32px;
+    margin: 14px;
+  }
+}
+
+.col-xs-10 {
+  padding: 15px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.story-snap {
+  transform: rotateY(180deg);
+  -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+  -moz-transform:rotateY(180deg); /* Firefox */
+}

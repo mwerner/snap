@@ -21,36 +21,33 @@ class Server < Sinatra::Base
   end
 
   # Camera
-  get '/camera' do
+  get '/snap' do
     authorize!
     erb :camera
   end
 
   post '/camera' do
     authorize!
-    path = '/Users/matthewwerner/Downloads/image.png'
-    data = params[:image]
-    puts params.inspect
-    # File.open(path, 'wb') { |f| f.write(data[:tempfile].read) }
-    # response = Cloudinary::Uploader.upload data[:tempfile].path, settings.cloudinary_api
     image = File.new(params[:image][:tempfile])
     response = Cloudinary::Uploader.upload image.path, settings.cloudinary_api
 
     snap = current_user.snaps.create(image_url: response['url'])
     SnapSend.create(user_id: current_user.id, receiver_id: params[:reciever_id], snap_id: snap.id)
-
-    'ok'
+    200
   end
 
   # Messaging
-  get '/messages' do
+  get '/chat' do
     authorize!
-    erb :messages
+    @users = current_user.leaders
+    erb :chat
   end
 
   # Relationships
-  put '/users/:id/follow/:leader_id' do |leader_id|
-
+  put '/users/:id/follow/:username' do
+    leader = User.where(username: params[:username]).first
+    current_user.start_following(leader)
+    redirect '/chat'
   end
 
   # Stories
@@ -58,5 +55,11 @@ class Server < Sinatra::Base
     authorize!
     @users = current_user.leaders
     erb :stories
+  end
+
+  get '/story/:username' do
+    @user = User.where(username: params[:username]).first
+    @stories = @user.stories.to_a
+    erb :story
   end
 end

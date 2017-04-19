@@ -1,11 +1,11 @@
 <div id="stories">
-  <h2>Stories</h2>
+  <h3 style="text-align: center;font-size: 13px;">Recent Updates</h3>
   <%- @users.each do |user| %>
-    <% user.stories.each do |story| %>
-      <div class="story">
-        <%= user.name %>
-        <img src="<%= story.image_url %>" style="width: 100%;">
+    <a href="/story/<%= user.username %>">
+      <div class="story-row row">
+        <div class="col-xs-2"><i class="fa fa-user-circle" aria-hidden="true"></i></div>
+        <div class="col-xs-10"><%= user.name %></div>
       </div>
-    <% end %>
+    </a>
   <% end %>
 </div>

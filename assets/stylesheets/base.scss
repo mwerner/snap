@@ -4,40 +4,34 @@ body{
   background:#eee;
 }
 
-canvas {
-  transform: rotateY(180deg);
-  -webkit-transform:rotateY(180deg); /* Safari and Chrome */
-  -moz-transform:rotateY(180deg); /* Firefox */
-}
+#nav {
+  background: black;
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+  padding: 10px;
+  font-size: 22px;
 
-video {
-  object-fit: cover;
-  height: 510px;
-  transform: rotateY(180deg);
-  -webkit-transform:rotateY(180deg); /* Safari and Chrome */
-  -moz-transform:rotateY(180deg); /* Firefox */
-  z-index: 1;
-  position: absolute;
-}
+  .chat-link {
+    display:inline-block;
+    float: left;
+    color: white;
+  }
 
-#shutter {
-  position: absolute;
-  bottom: 10px;
-  background: white;
-  left: 50%;
-  width: 40px;
-  z-index:99;
-}
+  .stories-link {
+    display:inline-block;
+    float: right;
+    color: white;
+  }
 
-#capture {
-  display: none;
-  #photo {
-  object-fit: cover;
-  height: 510px;
-  transform: rotateY(180deg);
-  -webkit-transform:rotateY(180deg); /* Safari and Chrome */
-  -moz-transform:rotateY(180deg); /* Firefox */
-  z-index: 2;
-  position: absolute;
+  .camera-link {
+    position: absolute;
+    color: white;
+    top: 0;
+    left: 43%;
+    margin: 7px;
+    display: block;
+    z-index: 99;
+    font-size: 30px;
   }
 }

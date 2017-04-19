@@ -30,6 +30,20 @@
       return new Blob(byteArrays, {type: mime});
   }
 
+  if ($('.story-snap')) {
+    $(document).on('click', '.story-snap', function(e) {
+      var snap = $(this)
+      var next_snap = snap.next();
+
+      if (next_snap.length) {
+        snap.hide();
+        next_snap.show();
+      } else {
+        window.location = '/stories';
+      }
+    });
+  }
+
   if (video) {
     navigator.getMedia = ( navigator.getUserMedia ||
                            navigator.webkitGetUserMedia ||
@@ -67,7 +81,9 @@
       e.preventDefault();
       $(video).show();
       $(canvas).hide();
-    })
+      $('#shutter').show();
+      $('#cancel-link').hide();
+    });
 
     function takePicture() {
       canvas.width = width;
@@ -96,8 +112,9 @@
     }
 
     startbutton.addEventListener('click', function(ev){
-        // takepicture();
         takePicture();
+        $('#shutter').hide();
+        $('#cancel-link').show();
       ev.preventDefault();
     }, false);
   }

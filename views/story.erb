@@ -1,0 +1,8 @@
+<div id="story">
+  <% image = @stories.pop %>
+  <img class="story-snap" src="<%= image.image_url %>">
+
+  <% @stories.each do |story| %>
+    <img class="story-snap" src="<%= story.image_url %>" style="display: none;">
+  <% end %>
+</div>

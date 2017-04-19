@@ -1,0 +1,37 @@
+canvas {
+  transform: rotateY(180deg);
+  -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+  -moz-transform:rotateY(180deg); /* Firefox */
+}
+
+video {
+  object-fit: cover;
+  height: 510px;
+  transform: rotateY(180deg);
+  -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+  -moz-transform:rotateY(180deg); /* Firefox */
+  z-index: 1;
+  position: absolute;
+}
+
+#shutter, #cancel-link {
+  position: absolute;
+  bottom: 10px;
+  left: 43%;
+  z-index: 99;
+  font-size: 50px;
+  color: white;
+}
+
+#capture {
+  display: none;
+  #photo {
+  object-fit: cover;
+  height: 510px;
+  transform: rotateY(180deg);
+  -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+  -moz-transform:rotateY(180deg); /* Firefox */
+  z-index: 2;
+  position: absolute;
+  }
+}
