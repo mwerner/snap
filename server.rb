@@ -1,9 +1,5 @@
 require 'sinatra/rider'
 require_relative 'environment'
-require 'pry'
-# # require 'paperclip'
-
-# Cloudinary.configure(YAML.file_load('config/cloudinary'))
 
 class Server < Sinatra::Base
   register Sinatra::Rider
