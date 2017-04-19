@@ -1,7 +1,12 @@
-<div class="wrap">
-  <div id="container">
-    <% if logged_in? %>
-      <%= "Hi, #{current_user.username}" %>
-    <% end %>
+<div id="homepage">
+  <div id="banner">
+    <i class="fa fa-snapchat-ghost" aria-hidden="true"></i>
   </div>
+
+  <a id="login-link" href="/login">LOG IN</a>
+  <a id="signup-link" href="/signup">SIGN UP</a>
 </div>
+
+<script type="text/javascript">
+  document.querySelector('body').setAttribute('style', 'background:#fcf759;');
+</script>

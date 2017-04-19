@@ -35,3 +35,39 @@ body{
     font-size: 30px;
   }
 }
+
+#homepage {
+  background: #fcf759;
+  padding-top: 50px;
+
+  #banner {
+    text-align: center;
+    font-size: 51px;
+    color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    padding-bottom: 50px;
+  }
+
+  #login-link {
+    display: block;
+    background: #d83e58;
+    text-align: center;
+    padding: 20px;
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+  }
+
+  #signup-link {
+    display: block;
+    background: #5bb0dd;
+    text-align: center;
+    padding: 20px;
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    display: fixed;
+    bottom: 0;
+  }
+}

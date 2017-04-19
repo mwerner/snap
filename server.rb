@@ -17,6 +17,10 @@ class Server < Sinatra::Base
   end
 
   get '/' do
+    if current_user
+      redirect '/snap'
+    end
+
     erb :index
   end
 
@@ -44,9 +48,21 @@ class Server < Sinatra::Base
   end
 
   # Relationships
-  put '/users/:id/follow/:username' do
+  post '/follow' do
     leader = User.where(username: params[:username]).first
-    current_user.start_following(leader)
+    if leader
+      current_user.start_following(leader)
+    end
+
+    redirect '/chat'
+  end
+
+  get '/unfollow/:username' do
+    leader = User.where(username: params[:username]).first
+    if leader
+      current_user.stop_following(leader)
+    end
+
     redirect '/chat'
   end
 

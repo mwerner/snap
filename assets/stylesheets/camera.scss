@@ -23,15 +23,12 @@ video {
   color: white;
 }
 
-#capture {
-  display: none;
-  #photo {
+#preview {
   object-fit: cover;
   height: 510px;
   transform: rotateY(180deg);
   -webkit-transform:rotateY(180deg); /* Safari and Chrome */
   -moz-transform:rotateY(180deg); /* Firefox */
-  z-index: 2;
+  z-index: 1;
   position: absolute;
-  }
 }

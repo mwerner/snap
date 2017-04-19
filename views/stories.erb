@@ -1,11 +1,13 @@
 <div id="stories">
   <h3 style="text-align: center;font-size: 13px;">Recent Updates</h3>
   <%- @users.each do |user| %>
-    <a href="/story/<%= user.username %>">
-      <div class="story-row row">
-        <div class="col-xs-2"><i class="fa fa-user-circle" aria-hidden="true"></i></div>
-        <div class="col-xs-10"><%= user.name %></div>
-      </div>
-    </a>
+    <% if user.stories.any? %>
+      <a href="/story/<%= user.username %>">
+        <div class="story-row row">
+          <div class="col-xs-2"><i class="fa fa-user-circle" aria-hidden="true"></i></div>
+          <div class="col-xs-10"><%= user.username %></div>
+        </div>
+      </a>
+    <% end %>
   <% end %>
 </div>

@@ -12,9 +12,11 @@
 </head>
 
 <body>
-  <%= erb '_navigation'.to_sym %>
+  <% if logged_in? %>
+    <%= erb '_navigation'.to_sym %>
+  <% end %>
 
-  <div style="padding-top: 50px;">
+  <div>
     <%= yield %>
   </div>
 
