@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: mjwsnap
+  api_key: '527267436261599'
+  api_secret: 2tyNKoDnA4yu1A1P_ZCubnVQF_k
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: mjwsnap
+  api_key: '527267436261599'
+  api_secret: 2tyNKoDnA4yu1A1P_ZCubnVQF_k
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: mjwsnap
+  api_key: '527267436261599'
+  api_secret: 2tyNKoDnA4yu1A1P_ZCubnVQF_k
+  enhance_image_tag: true
+  static_image_support: false

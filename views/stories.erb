@@ -1,0 +1,11 @@
+<div id="stories">
+  <h2>Stories</h2>
+  <%- @users.each do |user| %>
+    <% user.stories.each do |story| %>
+      <div class="story">
+        <%= user.name %>
+        <img src="<%= story.image_url %>" style="width: 100%;">
+      </div>
+    <% end %>
+  <% end %>
+</div>

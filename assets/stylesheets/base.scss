@@ -1,1 +1,43 @@
-body {}
+body{
+  padding: 0;
+  margin: 0;
+  background:#eee;
+}
+
+canvas {
+  transform: rotateY(180deg);
+  -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+  -moz-transform:rotateY(180deg); /* Firefox */
+}
+
+video {
+  object-fit: cover;
+  height: 510px;
+  transform: rotateY(180deg);
+  -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+  -moz-transform:rotateY(180deg); /* Firefox */
+  z-index: 1;
+  position: absolute;
+}
+
+#shutter {
+  background: blue;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  width: 40px;
+  z-index:99;
+}
+
+#capture {
+  display: none;
+  #photo {
+  object-fit: cover;
+  height: 510px;
+  transform: rotateY(180deg);
+  -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+  -moz-transform:rotateY(180deg); /* Firefox */
+  z-index: 2;
+  position: absolute;
+  }
+}

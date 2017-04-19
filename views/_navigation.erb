@@ -1,15 +1,15 @@
 <nav>
-  <% if signed_in? %>
-    Hi, <%= current_user.name %>!
-    &nbsp;
-    <a href="/">Home</a>
-    |
-    <a href="/logout">Logout</a>
-  <% else %>
-    <a href="/">Home</a>
-    |
-    <a href="/login">Login</a>
-    |
-    <a href="/signup">Signup</a>
-  <% end %>
+  <div class="row">
+    <div class="col-md-3">
+      <a href="/messages">Messages</a>
+    </div>
+
+    <div class="col-md-3">
+      <a href="/camera">Camera</a>
+    </div>
+
+    <div class="col-md-3">
+      <a href="/stories">Stories</a>
+    </div>
+  </div>
 </nav>
