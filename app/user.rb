@@ -17,6 +17,6 @@ class User < Sinatra::Rider::User
 
   def stop_following(user)
     return if user.nil?
-    Relationship.where(leader_id: user.id, follower_id: id).destroy
+    Relationship.where(leader_id: user.id, follower_id: id).destroy_all
   end
 end
