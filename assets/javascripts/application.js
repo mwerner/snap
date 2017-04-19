@@ -1,9 +1,9 @@
 (function() {
   var streaming = false,
       video        = document.querySelector('#video'),
-      canvas       = document.querySelector('#capture'),
+      canvas       = document.querySelector('#canvas'),
       photo_image  = document.querySelector('#photo'),
-      image        = document.querySelector('#image'),
+      preview      = document.querySelector('#preview'),
       startbutton  = document.querySelector('#shutter'),
       width = 320,
       height = 0;
@@ -63,7 +63,13 @@
       }
     }, false);
 
-    function takeBlob() {
+    $(document).on("click", '#cancel-link', function(e){
+      e.preventDefault();
+      $(video).show();
+      $(canvas).hide();
+    })
+
+    function takePicture() {
       canvas.width = width;
       canvas.height = height;
       canvas.getContext('2d').drawImage(video, 0, 0, width, height);
@@ -73,7 +79,9 @@
       var blob = base64ToBlob(base64ImageContent, 'image/png');
       var formData = new FormData();
       formData.append('image', blob);
-      photo_image.setAttribute('src', image);
+      preview.setAttribute('src', image);
+      $(video).hide();
+      $(canvas).show();
 
       $.ajax({
           url: "/camera",
@@ -87,34 +95,9 @@
               });
     }
 
-    function takepicture() {
-      canvas.width = width;
-      canvas.height = height;
-      canvas.getContext('2d').drawImage(video, 0, 0, width, height);
-      var data = canvas.toDataURL('image/png');
-      console.info('snap4')
-      photo.setAttribute('value', data);
-
-      //Prepare data to be sent
-      var data = canvas.toDataURL('image/png');
-      var params = "image=" + data;
-
-      //Initiate the request
-      var httpRequest = new XMLHttpRequest();
-      httpRequest.open('POST', '/camera', true);
-
-      //Send proper headers
-      httpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      httpRequest.setRequestHeader("Content-length", params.length);
-      httpRequest.setRequestHeader("Connection", "close");
-
-      //Send your data
-      httpRequest.send(params);
-    }
-
     startbutton.addEventListener('click', function(ev){
         // takepicture();
-        takeBlob();
+        takePicture();
       ev.preventDefault();
     }, false);
   }
