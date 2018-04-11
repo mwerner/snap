@@ -40,6 +40,7 @@ class Server < Sinatra::Base
   get '/chat' do
     authorize!
     @users = current_user.leaders
+    @messages = current_user.messages
     erb :chat
   end
 

@@ -6,6 +6,8 @@ class User < Sinatra::Rider::User
   has_many :leaders, class_name: 'User', through: :followships, source: :leader
   has_many :snaps
 
+  has_many :messages, foreign_key: :receiver_id
+
   def stories
     Snap.joins(:sends).where("snap_sends.user_id" => id, "snap_sends.receiver_id" => nil)
   end

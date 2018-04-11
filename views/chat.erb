@@ -8,6 +8,19 @@
     </div>
   <% end %>
 
+  <div class="container", style="padding:10px; background:white; margin-top: 10px">
+
+    <%- @messages.each do |message| %>
+      <div>
+        <div><%= message.content %></div>
+        <div><%= message.user.username %></div>
+      </div>
+    <% end %>
+
+
+
+  </div>
+
   <div class="container" style="margin-top: 10px;">
     <form id="login-form" action="/follow" method="POST">
       <div class="form-group">
